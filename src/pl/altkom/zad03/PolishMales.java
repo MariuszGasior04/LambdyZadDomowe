@@ -1,5 +1,7 @@
 package pl.altkom.zad03;
 
+import pl.altkom.Gender;
+import pl.altkom.Nationality;
 import pl.altkom.Writer;
 
 import java.util.List;
@@ -12,10 +14,10 @@ Popraw program, tak aby wypisał pisarzy narodowości polskiej
 public class PolishMales {
     public static void main(String[] args) {
         List<Writer> writers = Writer.generateListOfWriters();
-        Predicate<Writer> polish = null;
-        Predicate<Writer> male = null;
-        Predicate<Writer> polishMale = null;
-        Consumer<Writer> printer = null;
+        Predicate<Writer> polish = polWriter -> polWriter.getNationality() == Nationality.POLISH;
+        Predicate<Writer> male = maleWriter -> maleWriter.getGender() == Gender.MALE;
+        Predicate<Writer> polishMale = polish.and(male).negate();
+        Consumer<Writer> printer = print -> System.out.println(print.toString());
         writers.removeIf(polishMale);
         writers.forEach(printer);
 
