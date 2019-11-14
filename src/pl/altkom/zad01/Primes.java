@@ -1,6 +1,7 @@
 package pl.altkom.zad01;
 
 import java.util.function.IntSupplier;
+import java.util.stream.IntStream;
 
 /*
     Stwórz obiekt klasy IntSupplier, który będzie generował kolejne liczby pierwsze
@@ -19,7 +20,20 @@ import java.util.function.IntSupplier;
     Hint: Stwórz pomocniczy predykat, który wykorzystasz do sprawdzenia, czy liczba jest pierwsza
  */
 
+
 public class Primes {
+
+
+        public boolean test(int number){
+            for (int i = 2; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
     public static void main(String[] args) {
         IntSupplier primesGenerator = null;
         System.out.println(primesGenerator.getAsInt());
