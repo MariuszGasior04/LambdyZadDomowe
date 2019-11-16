@@ -17,7 +17,7 @@ public class PolishMales {
         Predicate<Writer> polish = polWriter -> polWriter.getNationality() == Nationality.POLISH;
         Predicate<Writer> male = maleWriter -> maleWriter.getGender() == Gender.MALE;
         Predicate<Writer> polishMale = polish.and(male).negate();
-        Consumer<Writer> printer = print -> System.out.println(print.toString());
+        Consumer<Writer> printer = writer -> System.out.println(writer.toString());
         writers.removeIf(polishMale);
         writers.forEach(printer);
 

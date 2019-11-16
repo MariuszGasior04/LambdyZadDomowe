@@ -10,10 +10,10 @@ import java.util.function.IntSupplier;
 
 public class Randoms {
     public static void main(String[] args) {
-        IntSupplier randomGenerator = () -> {
-            int random = new Random().nextInt(14)+35;
-            return random;
-        };
+        Random random = new Random();
+
+        IntSupplier randomGenerator = () -> random.nextInt(14)+35;
+
         System.out.println(randomGenerator.getAsInt());
         System.out.println(randomGenerator.getAsInt());
         System.out.println(randomGenerator.getAsInt());

@@ -15,7 +15,7 @@ Popraw program, aby wypisał pisarzy z zaktualizowaną oceną:
 public class ReRank {
     public static void main(String[] args) {
         List<Writer> writers = Writer.generateListOfWriters();
-        Consumer<Writer> printer = print -> System.out.println(print.toString());
+        Consumer<Writer> printer = writer -> System.out.println(writer.toString());
         UnaryOperator<Writer> updater = writer -> {
             if(writer.getGender() == Gender.MALE){
                 writer.setRank(writer.getRank()-1.0);

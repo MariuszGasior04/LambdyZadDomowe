@@ -7,13 +7,14 @@ import java.util.OptionalDouble;
 
 /*
 Popraw poniższy program, aby wypisał średnią (arytmetyczną) ocen wszystkich pisarzy (kobiet i mężczyzn)
+Function<Writer, Double> rank = writer -> writer.getRank()
  */
 
 public class AverageRank {
 
     public static double getAverageRank(List<Writer> writers) {
         OptionalDouble avg = writers.stream()
-                .mapToDouble(writer ->writer.getRank())
+                .mapToDouble(writer -> writer.getRank())
                 .average();
 
         return avg.getAsDouble();

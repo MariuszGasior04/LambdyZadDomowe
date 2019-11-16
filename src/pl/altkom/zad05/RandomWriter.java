@@ -12,9 +12,10 @@ Popraw poniższy program, aby wypisał losowego pisarza
 public class RandomWriter {
     public static void main(String[] args) {
         List<Writer> writers = Writer.generateListOfWriters();
+        Random random = new Random();
         Supplier<Writer> randomWriterGenerator = () -> {
-            int random = new Random().nextInt(writers.size());
-            return writers.get(random);
+            int index = random.nextInt(writers.size());
+            return writers.get(index);
         };
         System.out.println(randomWriterGenerator.get());
     }
