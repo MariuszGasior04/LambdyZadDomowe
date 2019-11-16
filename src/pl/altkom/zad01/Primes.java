@@ -34,7 +34,7 @@ public class Primes {
             return true;
         };
 
-        IntSupplier primesGenerator = () ->{
+        IntSupplier primesGenerator = () -> {
             do{
                 currentNumber++;
             }while(!isPrime.test(currentNumber));
